@@ -1,28 +1,24 @@
 $(function(){
-  $("form#groceries").submit(function(event) {
+  $("form#sentence").submit(function(event) {
     event.preventDefault();
-    var groceryList = ["firstItem", "secondItem", "thirdItem", "fourthItem"];
-    var userList = [];
-    groceryList.forEach(function(listItem) {
-      var listItem = $("#" + listItem).val().toUpperCase();
-      userList.push(listItem);
-
-
-      // userInput.sort();
-      // var upperGroceryList = userInput.map(function(listItem) {
-      //   return listItem.toUpperCase();
-      // });
+    var userString = $("#oneSentence").val();
+    //console.log(userString);
+    var newString = userString.split(" ");
+    var newArray = [];
+  //  console.log(newString);
+    newString.forEach(function(dick) {
+      if (dick.length >= 3) {
+        newArray.push(dick);
+      };
     });
-    console.log(userList);
-    userList.sort();
-    console.log(userList);
-    $("#groceries").hide();
-    userList.forEach(function(list) {
-      $("#shoppingList").append("<li>" + list + "</li>");
-    });
-    // console.log(groceryList);
+    console.log(newArray);
+    var testArray = newArray.slice().reverse().join(" ");
+    console.log(testArray);
+  /*  function newString(dick) {
+      return dick.length >= 3;
 
-
-
+      console.log(dick);
+    };
+*/
   });
 });
